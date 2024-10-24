@@ -158,3 +158,18 @@ console.log(author, title, genres)
 const [primaryGenres, secondaryGenres, ...otherGenres] = genres
 
 console.log(primaryGenres, secondaryGenres, otherGenres)
+
+const newGenres = [...genres, "test"]
+console.log(newGenres)
+
+const updatedBook = { ...book, moviePublicationDate: "2001-12-19", pages: 1201 }
+updatedBook
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
+	publicationDate.split("-")[0]
+}`
+
+summary
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000"
+pagesRange
