@@ -142,7 +142,7 @@ function getBooks() {
 function getBook(id) {
 	return data.find(d => d.id === id)
 }
-const book = getBook(2)
+const book = getBook(3)
 book
 // const title = book.title
 // const author = book.author
@@ -165,13 +165,11 @@ console.log(newGenres)
 const updatedBook = { ...book, moviePublicationDate: "2001-12-19", pages: 1201 }
 updatedBook
 
-const getYear = date => date.split('-')[0]
+const getYear = date => date.split("-")[0]
 const result = getYear(publicationDate)
 result
 
-const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
-	result
-}`
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${result}`
 
 summary
 
@@ -182,3 +180,36 @@ pagesRange
 // 	return date.split('-')[0]
 // }
 
+console.log(true && "some string")
+
+console.log(false && "some string")
+
+console.log(true || "some string")
+
+console.log(false || "some string")
+
+console.log(hasMovieAdaptation && "this book has a movie")
+
+console.log("jonas" && "some string")
+console.log(0 && "some string")
+
+console.log(book.translations.spanish)
+
+const spanishTranslation = book.translations.spanish || "not translated"
+spanishTranslation
+
+// console.log(book.reviews.librarything.reviewsCount)
+
+const countWrong = "no data"
+
+// const count = book.reviews.librarything.reviewsCount ?? countWrong
+
+// count
+
+function getTotalReviewsCount() {
+	const goodreads = book.reviews?.goodreads.reviewsCount
+	goodreads
+	const librarything = book.reviews?.librarything?.reviewsCount ?? 0
+	return goodreads + librarything
+}
+console.log(getTotalReviewsCount())
