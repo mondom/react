@@ -142,74 +142,96 @@ function getBooks() {
 function getBook(id) {
 	return data.find(d => d.id === id)
 }
-const book = getBook(3)
-book
-// const title = book.title
-// const author = book.author
 
-const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-	book
+const books = getBooks()
 
-console.log(author, title, genres)
+// // const title = book.title
+// // const author = book.author
 
-// const primaryGenres = genres[0]
-// const secondaryGenres = genres[1]
+// const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+// 	book
 
-const [primaryGenres, secondaryGenres, ...otherGenres] = genres
+// console.log(author, title, genres)
 
-console.log(primaryGenres, secondaryGenres, otherGenres)
+// // const primaryGenres = genres[0]
+// // const secondaryGenres = genres[1]
 
-const newGenres = [...genres, "test"]
-console.log(newGenres)
+// const [primaryGenres, secondaryGenres, ...otherGenres] = genres
 
-const updatedBook = { ...book, moviePublicationDate: "2001-12-19", pages: 1201 }
-updatedBook
+// console.log(primaryGenres, secondaryGenres, otherGenres)
 
-const getYear = date => date.split("-")[0]
-const result = getYear(publicationDate)
-result
+// const newGenres = [...genres, "test"]
+// console.log(newGenres)
 
-const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${result}`
+// const updatedBook = { ...book, moviePublicationDate: "2001-12-19", pages: 1201 }
+// updatedBook
 
-summary
+// const getYear = date => date.split("-")[0]
+// const result = getYear(publicationDate)
+// result
 
-const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000"
-pagesRange
+// const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${result}`
 
-// function getYear(date){
-// 	return date.split('-')[0]
-// }
+// summary
 
-console.log(true && "some string")
+// const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000"
+// pagesRange
 
-console.log(false && "some string")
+// // function getYear(date){
+// // 	return date.split('-')[0]
+// // }
 
-console.log(true || "some string")
+// console.log(true && "some string")
 
-console.log(false || "some string")
+// console.log(false && "some string")
 
-console.log(hasMovieAdaptation && "this book has a movie")
+// console.log(true || "some string")
 
-console.log("jonas" && "some string")
-console.log(0 && "some string")
+// console.log(false || "some string")
 
-console.log(book.translations.spanish)
+// console.log(hasMovieAdaptation && "this book has a movie")
 
-const spanishTranslation = book.translations.spanish || "not translated"
-spanishTranslation
+// console.log("jonas" && "some string")
+// console.log(0 && "some string")
 
-// console.log(book.reviews.librarything.reviewsCount)
+// console.log(book.translations.spanish)
 
-const countWrong = "no data"
+// const spanishTranslation = book.translations.spanish || "not translated"
+// spanishTranslation
 
-// const count = book.reviews.librarything.reviewsCount ?? countWrong
+// // console.log(book.reviews.librarything.reviewsCount)
 
-// count
+// const countWrong = "no data"
 
-function getTotalReviewsCount() {
+// // const count = book.reviews.librarything.reviewsCount ?? countWrong
+
+// // count
+
+function getTotalReviewsCount(book) {
 	const goodreads = book.reviews?.goodreads.reviewsCount
 	goodreads
 	const librarything = book.reviews?.librarything?.reviewsCount ?? 0
 	return goodreads + librarything
 }
-console.log(getTotalReviewsCount())
+// console.log(getTotalReviewsCount())
+
+const x = [1, 2, 3, 4, 5].map(el => el * 2)
+console.log(x)
+
+const titles = books.map(book => book.title)
+
+titles
+
+const essentialData = books.map(book => ({
+	title: book.title,
+	author: book.author,
+	reviewsCount: getTotalReviewsCount(book),
+}))
+essentialData
+
+const numberedBooks = books.map((book, index) => {
+	return `${index + 1}. ${book.title}`
+})
+numberedBooks
+
+
