@@ -244,8 +244,17 @@ const adventureBooks = books
 	.map(book => book.title)
 adventureBooks
 
-const sum = data.reduce((cur, acc) => {
-	return (cur += acc.pages)
+const sumAllPages = books.reduce((acc, cur) => {
+	return (acc += cur.pages)
 }, 0)
 
-sum
+sumAllPages
+
+const numbers = [3, 7, 1, 9, 6]
+
+const sorted = numbers.slice().sort((a, b) => a - b)
+sorted
+numbers
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages)
+sortedByPages
