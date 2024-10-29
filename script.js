@@ -234,8 +234,18 @@ const numberedBooks = books.map((book, index) => {
 })
 numberedBooks
 
-const thickBooksWithMovie = books.filter(book => book.pages > 500).filter(book => book.hasMovieAdaptation)
+const thickBooksWithMovie = books
+	.filter(book => book.pages > 500)
+	.filter(book => book.hasMovieAdaptation)
 thickBooksWithMovie
 
-const adventureBooks = books.filter(book => book.genres.includes('adventure')).map(book => book.title)
+const adventureBooks = books
+	.filter(book => book.genres.includes("adventure"))
+	.map(book => book.title)
 adventureBooks
+
+const sum = data.reduce((cur, acc) => {
+	return (cur += acc.pages)
+}, 0)
+
+sum
