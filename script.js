@@ -278,7 +278,25 @@ booksAfterDelete
 // 3) Update book object in the array
 
 const bookAfterUpdate = booksAfterDelete.map(book =>
-	book.id === 1 ? { ...book, pages: 1 } : book
+	book.id === 2
+		? { ...book, genres: book.genres.filter(genre => genre !== "fantasy") }
+		: book
 )
 
 bookAfterUpdate
+
+const bookAfterUpdate1 = booksAfterDelete.map(book =>
+	book.id === 5
+		? {
+				...book,
+				reviews: {
+					...book.reviews,
+					goodreads: { ...book.reviews.goodreads, rating: 4.9 },
+				},
+		  }
+		: book
+)
+
+bookAfterUpdate1
+
+
