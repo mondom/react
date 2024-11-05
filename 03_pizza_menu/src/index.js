@@ -57,10 +57,18 @@ function App() {
 	)
 }
 
+function Header() {}
+
+function Menu() {}
+
+function Footer() {}
+
+
+
 function Pizza() {
 	return (
 		<div>
-			<img src="pizzas/spinaci.jpg" alt='Pizza spinaci'/>
+			<img src='pizzas/spinaci.jpg' alt='Pizza spinaci' />
 			<h2>Pizza Spinaci</h2>
 			<p>Tomato, mozarella, spinach, and ricotta cheese</p>
 		</div>
