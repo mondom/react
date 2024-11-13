@@ -57,7 +57,7 @@ function App() {
 }
 
 function Header() {
-	return <h1>Fast React Pizza Co.</h1>
+	return <h1 style={{color: 'red'}}>Fast React Pizza Co.</h1>
 }
 
 function Menu() {
@@ -78,7 +78,7 @@ function Footer() {
 	const openHour = 12
 	const closeHour = 22
 	const isOpen = hour <= openHour || hour >= closeHour
-	console.log(isOpen);
+	console.log(isOpen)
 
 	// if (hour <= openHour || hour >= closeHour) {
 	// 	alert("Sorry we're closed")
