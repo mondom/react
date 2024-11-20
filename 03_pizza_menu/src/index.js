@@ -66,8 +66,8 @@ function Header() {
 }
 
 function Menu() {
-	// const pizzas = pizzaData
-	const pizzas = []
+	const pizzas = pizzaData
+	// const pizzas = []
 	const numPizzas = pizzas.length
 
 	return (
@@ -101,19 +101,22 @@ function Pizza(props) {
 function Footer() {
 	const hour = new Date().getHours()
 	console.log(hour)
-	const openHour = 9
+	const openHour = 12
 	const closeHour = 22
 	const isOpen = hour >= openHour && hour <= closeHour
 	console.log(isOpen)
 
 	return (
 		<footer className='footer'>
-			{isOpen && (
+			{isOpen ?
 				<div className='order'>
 					<p>We're open until {closeHour}:00. Come visit us or order online.</p>
 					<button className='btn'>Order</button>
-				</div>
-			)}
+				</div> : 
+					<p>We're happy to welcome you between {openHour}:00 and {closeHour}:00</p>
+					
+				
+			}
 			{/* {new Date().toLocaleTimeString().slice(0, -2)} We're currently open! */}
 		</footer>
 	)
