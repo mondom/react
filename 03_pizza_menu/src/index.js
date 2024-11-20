@@ -85,7 +85,14 @@ function Menu() {
 }
 
 function Pizza(props) {
-	console.log(props)
+
+console.log(props.pizzaObj.soldOut);
+
+if(props.pizzaObj.soldOut){
+	return null
+}
+
+
 	return (
 		<li className='pizza'>
 			<img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -128,3 +135,8 @@ root.render(
 		<App />
 	</React.StrictMode>
 )
+
+
+
+
+  
