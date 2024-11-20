@@ -79,19 +79,19 @@ function Menu() {
 						<Pizza pizzaObj={pizza} key={pizza.name} />
 					))}
 				</ul>
-			) : <p>We're still working on our menu. Please come back later ☺️</p>}
+			) : (
+				<p>We're still working on our menu. Please come back later ☺️</p>
+			)}
 		</main>
 	)
 }
 
 function Pizza(props) {
+	console.log(props.pizzaObj.soldOut)
 
-console.log(props.pizzaObj.soldOut);
-
-if(props.pizzaObj.soldOut){
-	return null
-}
-
+	if (props.pizzaObj.soldOut) {
+		return null
+	}
 
 	return (
 		<li className='pizza'>
@@ -107,25 +107,33 @@ if(props.pizzaObj.soldOut){
 
 function Footer() {
 	const hour = new Date().getHours()
-	console.log(hour)
+
 	const openHour = 12
 	const closeHour = 22
 	const isOpen = hour >= openHour && hour <= closeHour
-	console.log(isOpen)
 
 	return (
 		<footer className='footer'>
-			{isOpen ?
-				<div className='order'>
-					<p>We're open until {closeHour}:00. Come visit us or order online.</p>
-					<button className='btn'>Order</button>
-				</div> : 
-					<p>We're happy to welcome you between {openHour}:00 and {closeHour}:00</p>
-					
-				
-			}
+			{isOpen ? (
+				<Order closeHours={closeHour} />
+			) : (
+				<p>
+					We're happy to welcome you between {openHour}:00 and {closeHour}:00
+				</p>
+			)}
 			{/* {new Date().toLocaleTimeString().slice(0, -2)} We're currently open! */}
 		</footer>
+	)
+}
+
+function Order(props) {
+	return (
+		<div className='order'>
+			<p>
+				We're open until {props.closeHours}:00. Come visit us or order online.
+			</p>
+			<button className='btn'>Order</button>
+		</div>
 	)
 }
 
@@ -135,8 +143,3 @@ root.render(
 		<App />
 	</React.StrictMode>
 )
-
-
-
-
-  
