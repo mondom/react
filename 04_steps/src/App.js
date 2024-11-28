@@ -6,15 +6,14 @@ const messages = [
 ]
 
 export default function App() {
-	const [step, setStep] = useState(1)
-
+	const [step, setState] = useState(1)
 	const style = { backgroundColor: "#7950f2", color: "#fff" }
 
 	function handlePrevious() {
-		if (step > 1) setStep(step - 1)
+		if (step > 1) setState(step - 1)
 	}
 	function handleNext() {
-		if (step < 3) setStep(step + 1)
+		if (step < 3) setState(step + 1)
 	}
 
 	return (
