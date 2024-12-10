@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 const messages = [
 	"Learn React ⚛️",
 	"Apply for jobs 💼",
@@ -13,16 +14,21 @@ export default function App() {
 	const style = { backgroundColor: "#7950f2", color: "#fff" }
 
 	function handlePrevious() {
-		if (step > 1) setState(step - 1)
+		if (step > 1) setState(s => s - 1)
 	}
 	function handleNext() {
-		if (step < 3) setState(step + 1)
+		if (step < 3) {
+			setState(s => s + 1)
+			setState(s => s + 1)
+		}
 		// setTest({name: 'Kinga'})
 	}
 
 	return (
 		<div>
-			<button className="close" onClick={()=>setIsOpen(!isOpen)}>&times;</button>
+			<button className='close' onClick={() => setIsOpen(is => !is)}>
+				&times;
+			</button>
 			{isOpen && (
 				<div className='steps'>
 					<div className='numbers'>
@@ -49,3 +55,4 @@ export default function App() {
 		</div>
 	)
 }
+
