@@ -12,8 +12,8 @@ function Counter() {
 	const [count, setCount] = useState(0)
 
 	function updateDate() {
-		const baseDate = new Date() 
-		baseDate.setDate(baseDate.getDate() + count) 
+		const baseDate = new Date()
+		baseDate.setDate(baseDate.getDate() + count)
 
 		const days = [
 			"Sunday",
@@ -81,7 +81,15 @@ function Counter() {
 				</button>
 			</div>
 			<div>
-				<p>{`Today is ${updateDate(count)}`}</p>
+				<p>
+					{count === 0
+						? `Today is ${updateDate(count)}`
+						: count < 0
+						? `${Math.abs(count)} days ago was ${updateDate(count)}`
+						: count > 0
+						? `${count} days from today is ${updateDate(count)}`
+						: ""}
+				</p>
 			</div>
 		</div>
 	)
