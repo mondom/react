@@ -86,9 +86,7 @@ function Counter() {
 						? `Today is ${updateDate(count)}`
 						: count < 0
 						? `${Math.abs(count)} days ago was ${updateDate(count)}`
-						: count > 0
-						? `${count} days from today is ${updateDate(count)}`
-						: ""}
+						: `${count} days from today is ${updateDate(count)}`}
 				</p>
 			</div>
 		</div>
