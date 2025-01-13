@@ -27,7 +27,8 @@ function Form() {
 
 	function handleSubmit(e) {
 		e.preventDefault()
-		console.log(e)
+		const newItem = { quantity, description, packed: false, id: Date.now() }
+		console.log(newItem)
 	}
 
 	return (
@@ -45,7 +46,7 @@ function Form() {
 			</select>
 			<input
 				type='text'
-				placeholder='Item..'
+				placeholder='Item...'
 				value={description}
 				onChange={e => setDescription(e.target.value)}
 			></input>
