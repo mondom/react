@@ -46,7 +46,22 @@ const questions = [
 ]
 
 function FlashCards() {
-	return <div>TODO</div>
+	return (
+		<div className='flashcards'>
+			{questions.map(question => (
+				<FlashCard question={question} />
+			))}
+		</div>
+	)
+}
+
+function FlashCard({ question }) {
+
+	return (
+		<div>
+			<p>{question.question}</p>
+		</div>
+	)
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
