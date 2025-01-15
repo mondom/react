@@ -60,13 +60,13 @@ function Counter() {
 		setCount(c => c + step)
 	}
 
-	function handleSetStep(e) {
-		console.log(e.target.value)
-		setStep(Number(e.target.value))
-	}
-	function handleSetCount(e) {
-		setCount(e.target.value)
-	}
+	// function handleSetStep(e) {
+	// 	console.log(e.target.value)
+	// 	setStep(Number(e.target.value))
+	// }
+	// function handleSetCount(e) {
+	// 	setCount(e.target.value)
+	// }
 	function handleReset() {
 		setStep(1)
 		setCount(0)
@@ -81,7 +81,7 @@ function Counter() {
 					max='10'
 					value={step}
 					onChange={e => {
-						handleSetStep(e)
+						setStep(Number(e.target.value))
 					}}
 				/>
 				{/* <button className='minus' onClick={handleStepMinus}>
@@ -91,12 +91,17 @@ function Counter() {
 				<button className='plus' onClick={handleStepPlus}>
 					+
 				</button> */}
+				<p>{step}</p>
 			</div>
 			<div className='count'>
 				<button className='minus' onClick={handleCountMinus}>
 					-
 				</button>
-				<input value={count} onChange={e => handleSetCount(e)}></input>
+				<input
+					type='text'
+					value={count}
+					onChange={e => setCount(Number(e.target.value))}
+				></input>
 				<button className='plus' onClick={handleCountPlus}>
 					+
 				</button>
@@ -110,7 +115,11 @@ function Counter() {
 						: `${count} days from today is ${updateDate(count)}`}
 				</p>
 			</div>
-			<button onClick={handleReset}>Reset</button>
+			{count !== 0 || step !== 1 ? (
+				<button onClick={handleReset}>Reset</button>
+			) : (
+				null
+			)}
 		</div>
 	)
 }
