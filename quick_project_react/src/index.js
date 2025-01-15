@@ -115,10 +115,8 @@ function Counter() {
 						: `${count} days from today is ${updateDate(count)}`}
 				</p>
 			</div>
-			{count !== 0 || step !== 1 ? (
+			{(count !== 0 || step !== 1) && (
 				<button onClick={handleReset}>Reset</button>
-			) : (
-				null
 			)}
 		</div>
 	)
