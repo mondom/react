@@ -7,11 +7,14 @@ const initialItems = [
 ]
 
 export default function App() {
+
+	const [items, setItems] = useState([])
+
 	return (
 		<div className='app'>
 			<Logo />
 			<Form />
-			<PackingList />
+			<PackingList items={items}/>
 			<Stats />
 		</div>
 	)
@@ -24,10 +27,10 @@ function Logo() {
 function Form() {
 	const [description, setDescription] = useState("")
 	const [quantity, setQuantity] = useState(1)
-	const [items, setItems] = useState([])
+	
 
-	function handleAddItem(item){
-		setItems(items=>[...items, item])
+	function handleAddItem(item) {
+		setItems(items => [...items, item])
 	}
 
 	function handleSubmit(e) {
@@ -68,11 +71,11 @@ function Form() {
 	)
 }
 
-function PackingList() {
+function PackingList({items}) {
 	return (
 		<div className='list'>
 			<ul>
-				{initialItems.map(item => (
+				{items.map(item => (
 					<Item item={item} key={item.id} />
 				))}
 			</ul>
